@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript || more-events</title>
+   <style>
+         h1{
+            display: flex;
+            justify-content: center;
+            text-transform: capitalize;
+            }
+        button{
+                border: 2px solid red; 
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                /* margin: 1rem; */
+                cursor: pointer;
+                text-transform: capitalize;
+            }
+            #content-wrapper{
+                width: 70%;
+                margin: auto;
+            }
+            input::placeholder{
+             color: white;
+            }
+            input{
+                width: 50%;
+                height: 30px; 
+            }
+   
+   </style>
+</head>
+<body>
+    <h1> javascript more events </h1>
+    <div id="content-wrapper">
+        <p id="secrect-info">This is  text will be delete after clicking the delete button  </p>
+        <br>
+        <input type="text" placeholder="please input delect " id="delect-confirm">
+        <button id="delete-btn" disabled>delete btn</button>
+    </div>
+    <script>
+        // selection all contents those remains in this section
+        const delectConfirm = document.getElementById('delect-confirm');
+        const delectBtn = document.getElementById('delete-btn');
+        const secrectInfo = document.getElementById('secrect-info');
+         // for using this section you must remove the disable attribute from button  
+        function delectContent() {
+            secrectInfo.style.display = 'none';
+        }
+        delectBtn.addEventListener('click', delectContent);
+        // focus event
+        function focus() {
+            delectConfirm.style.backgroundColor = 'gray';
+            delectConfirm.style.color = 'white';
+        }
+        delectConfirm.addEventListener('focus', focus);
+        // focus event
+        function blur() {
+            delectConfirm.style.backgroundColor = 'lightgreen';
+            // delectConfirm.style.color = 'white';
+        }
+        delectConfirm.addEventListener('blur', blur);
+        // // keypress event
+        // function keypress() {
+        //     console.log(delectConfirm.value);
+        // }
+        // delectConfirm.addEventListener('keypress', keypress);
+       // keyup event
+        function keyup(event) {
+            if(event.target.value == 'delete') {
+                delectBtn.removeAttribute('disabled'); 
+            }
+            else{
+                delectBtn.setAttribute('disabled', true);
+            }
+            // console.log(delectConfirm.value);
+        }
+        delectConfirm.addEventListener('keyup', keyup);
+        //change event occur when you clicking outside the field like blur event 
+        // function change() {
+        //     console.log(delectConfirm.value);
+        // }
+        // delectConfirm.addEventListener('change', change);
+    </script>
+</body>
+</html>

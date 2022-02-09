@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input || update</title>
+</head>
+<body>
+    <p id="p"> </p>
+    <input type="text" id="input-text">
+    <button id="update">update</button>
+    <button id="text-button">click me: give text to p </button>
+    <script>
+   
+    /*
+       const textButton = document.getElementById('text-button'); 
+        function giveText() {
+            const p = document.getElementById('p');
+            p.innerText = 'This text is set when cliking the button';
+        }
+        textButton.addEventListener('click', giveText); 
+        */
+    const inputText = document.getElementById('input-text');
+    const update = document.getElementById('update'); 
+    function myFunction() {
+        const p = document.getElementById('p');
+        p.innerText = inputText.value; 
+        inputText.value = " ";
+    }
+    update.addEventListener('click', myFunction);
+    
+
+    </script>
+
+</body>
+</html>
